@@ -1,4 +1,4 @@
-import { registerAs } from "@nestjs/config/dist"
+import { registerAs } from '@nestjs/config/dist';
 
 export default registerAs('config', () => {
   return {
@@ -8,6 +8,6 @@ export default registerAs('config', () => {
       database: process.env.POSTGRES_DB,
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
-    }
-  }
-})
+    },
+  };
+});
