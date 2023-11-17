@@ -45,6 +45,23 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Running migrations
+
+```bash
+# create migrations at db
+yarn migrations:create <path/migration-name>
+```
+
+```bash
+# delete migrations at db
+yarn migrations:drop
+```
+
+```bash
+# show migrations pending to run
+yarn migrations:show
+```
+
 ## Test
 
 ```bash
