@@ -10,7 +10,6 @@ import {
 import { ServerTenants } from './server-tenants.entity';
 import { ServerType } from '../../utils/enum/server-type';
 
-
 @Entity({ name: 'server' })
 export class Server {
   @PrimaryGeneratedColumn()
@@ -52,11 +51,9 @@ export class Server {
   @Column({
     type: 'enum',
     enum: ServerType,
-    default: ServerType.FIBER
+    default: ServerType.FIBER,
   })
-  type: ServerType
-
-
+  type: ServerType;
 
   @CreateDateColumn({
     name: 'created_at',
@@ -78,8 +75,6 @@ export class Server {
   })
   deletedAt?: Date;
 
-
   @OneToOne(() => ServerTenants, (tenants) => tenants.server)
-  tenant: ServerTenants
-
+  tenant: ServerTenants;
 }

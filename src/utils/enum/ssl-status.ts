@@ -1,4 +1,4 @@
 export enum SslStatus {
   EXPIRED = 'Expired',
-  ONDATE = 'OnDate'
+  ONDATE = 'OnDate',
 }

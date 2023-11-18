@@ -8,7 +8,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-import { Server } from './server.entity'
+import { Server } from './server.entity';
 import { ServerStatus } from '../../utils/enum/server-status';
 import { SslStatus } from '../../utils/enum/ssl-status';
 
@@ -22,24 +22,24 @@ export class ServerTenants {
 
   @ManyToOne(() => Server, {
     onUpdate: 'CASCADE',
-    onDelete: 'CASCADE'
+    onDelete: 'CASCADE',
   })
   @JoinColumn({ name: 'server_id' })
-  server: Server
+  server: Server;
 
   @Column({
     type: 'enum',
     enum: ServerStatus,
-    default: ServerStatus.RUNNING
+    default: ServerStatus.RUNNING,
   })
-  status: ServerStatus
+  status: ServerStatus;
 
   @Column({
     type: 'enum',
     enum: SslStatus,
-    default: SslStatus.ONDATE
+    default: SslStatus.ONDATE,
   })
-  ssl: SslStatus
+  ssl: SslStatus;
 
   @CreateDateColumn({
     name: 'created_at',
