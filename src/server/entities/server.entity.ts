@@ -2,12 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   DeleteDateColumn,
 } from 'typeorm';
+import { ServerTenants } from './server-tenants.entity';
+import { ServerType } from '../../utils/enum/server-type';
+
 
 @Entity({ name: 'server' })
 export class Server {
@@ -41,6 +43,21 @@ export class Server {
   @Column({ type: 'varchar', length: 255 })
   model: string;
 
+  @Column({ type: 'varchar', length: 255 })
+  oS: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  dist: string;
+
+  @Column({
+    type: 'enum',
+    enum: ServerType,
+    default: ServerType.FIBER
+  })
+  type: ServerType
+
+
+
   @CreateDateColumn({
     name: 'created_at',
     type: 'timestamptz',
@@ -60,4 +77,9 @@ export class Server {
     type: 'timestamptz',
   })
   deletedAt?: Date;
+
+
+  @OneToOne(() => ServerTenants, (tenants) => tenants.server)
+  tenant: ServerTenants
+
 }
