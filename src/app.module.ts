@@ -8,6 +8,8 @@ import { ConnectionsService } from './connections/service/connections.service';
 import { ConfigModule } from '@nestjs/config';
 import { ConnectionsModule } from './connections/connections.module';
 import { ServerModule } from './server/server.module';
+import { ServerTenantsController } from './server/controller/server-tenants.controller';
+import { ServerTenantsService } from './server/services/server-tenants.service';
 
 @Module({
   imports: [
@@ -19,7 +21,7 @@ import { ServerModule } from './server/server.module';
     ConnectionsModule,
     ServerModule,
   ],
-  controllers: [AppController, ConnectionsController],
-  providers: [AppService, ConnectionsService],
+  controllers: [AppController, ConnectionsController, ServerTenantsController],
+  providers: [AppService, ConnectionsService, ServerTenantsService],
 })
 export class AppModule {}
