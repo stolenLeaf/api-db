@@ -3,10 +3,10 @@ import { ConnectionsService } from '../service/connections.service';
 
 @Controller('connections')
 export class ConnectionsController {
-  constructor(private connenService: ConnectionsService){}
+  constructor(private connenService: ConnectionsService) {}
 
   @Get()
   findAll(): string {
-    return this.connenService.findAll()
+    return this.connenService.findAll();
   }
 }
